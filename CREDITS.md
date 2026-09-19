@@ -6,3 +6,4 @@ prese da Unsplash (licenza Unsplash: uso commerciale libero, attribuzione non ob
 - Modellistica — https://unsplash.com/photos/EZjEEBGCtaM
 - Confezione — https://images.unsplash.com/photo-1656441763728-fafb7c81b59f
 - Stiro — https://images.unsplash.com/photo-1696546761220-6c418dfefb8d
+- Lavaggio — https://images.unsplash.com/photo-1545173168-9f1947eebb7f

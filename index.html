@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ID KNIT — Identify yourself in our knitwear</title>
+<meta name="description" content="ID KNIT: maglieria tessuta nel nostro laboratorio in Italia. Scrivi il tuo nome in maglia e scopri il maglione cropped con trecce sulla manica.">
+<meta name="theme-color" content="#efe7d6">
+<meta property="og:title" content="ID KNIT — Identify yourself in our knitwear">
+<meta property="og:description" content="Maglieria tessuta nel nostro laboratorio in Italia. Scrivi il tuo nome in maglia.">
+<meta property="og:image" content="assets/og.jpg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="top__brand" href="#hero" aria-label="ID KNIT">ID KNIT</a>
+  <span class="top__by">by <img src="assets/logo-rde.svg" alt="RDE Knitting Developers" width="46" height="25"> <em>“Studio”</em></span>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <canvas class="hero__knit" id="heroKnit" aria-label="ID KNIT scritto in maglia" role="img"></canvas>
+  <div class="hero__copy">
+    <p class="mono">Identify yourself in our knitwear</p>
+    <h1 class="serif">Non lo rivendiamo.<br><em>Lo facciamo noi.</em></h1>
+    <p class="hero__lead">Maglieria tessuta punto per punto nel nostro laboratorio in Italia. Pochi pezzi, un’identità precisa.</p>
+    <div class="hero__cta">
+      <a class="btn btn--ink" href="#identify">Scrivi il tuo nome in maglia</a>
+      <a class="btn" href="#maglione">Guarda il maglione</a>
+    </div>
+  </div>
+</section>
+
+<!-- IDENTIFY YOURSELF -->
+<section class="identify" id="identify">
+  <div class="wrap">
+    <p class="mono kicker"><i></i>Identify yourself</p>
+    <h2 class="serif">La nostra etichetta è fatta in maglia.<br><em>Fai la tua.</em></h2>
+    <p class="sub">Scrivi il tuo nome: il carro lo tesse rango dopo rango, come facciamo con l’etichetta cucita nel collo di ogni capo.</p>
+
+    <div class="maker">
+      <div class="maker__stage">
+        <canvas id="labelCanvas" width="1080" height="1080" aria-label="La tua etichetta in maglia" role="img"></canvas>
+        <div class="maker__carriage" id="carriage" aria-hidden="true"><i></i></div>
+      </div>
+
+      <div class="maker__controls">
+        <label class="field">
+          <span class="mono">Il tuo nome</span>
+          <input id="nameInput" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="9" placeholder="GIULIA" aria-describedby="nameHint">
+          <small id="nameHint" class="mono">max 9 lettere · A–Z, 0–9</small>
+        </label>
+        <div class="field">
+          <span class="mono">Filo</span>
+          <div class="yarns" id="yarns" role="group" aria-label="Colore del filo"></div>
+        </div>
+        <div class="maker__actions">
+          <button class="btn btn--ink" id="knitBtn" type="button">Tessi</button>
+          <button class="btn" id="saveBtn" type="button">Salva immagine</button>
+          <button class="btn" id="shareBtn" type="button" hidden>Condividi</button>
+        </div>
+        <p class="maker__note mono" id="makerNote" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT -->
+<section class="product" id="maglione">
+  <div class="wrap">
+    <p class="mono kicker"><i></i>Il capo · 01</p>
+    <h2 class="serif">Il cropped con le trecce<br><em>sulla manica.</em></h2>
+
+    <div class="viewer">
+      <div class="viewer__tabs" role="tablist">
+        <button class="is-on" data-view="davanti" role="tab" aria-selected="true">Davanti</button>
+        <button data-view="dietro" role="tab" aria-selected="false">Dietro</button>
+      </div>
+      <div class="viewer__img" id="viewer">
+        <img id="viewerImg" src="assets/maglione-davanti.webp" alt="Maglione ID KNIT grigio, cropped, collo alto, visto di fronte" width="1600" height="688">
+        <div class="spots" id="spots">
+          <button class="spot" style="left:50%;top:15%" data-spot="0" aria-label="Collo alto">1</button>
+          <button class="spot" style="left:39%;top:40%" data-spot="1" aria-label="Raglan">2</button>
+          <button class="spot" style="left:76%;top:38%" data-spot="2" aria-label="Treccia sulla manica">3</button>
+          <button class="spot" style="left:50%;top:62%" data-spot="3" aria-label="Coste sul davanti">4</button>
+          <button class="spot" style="left:50%;top:93%" data-spot="4" aria-label="Taglio corto">5</button>
+        </div>
+      </div>
+      <p class="viewer__hint mono">Tocca i numeri</p>
+    </div>
+
+    <ol class="features" id="features">
+      <li data-f="0"><b>1</b><div><h3>Collo alto a coste</h3><p>Sale morbido e resta in piedi da solo.</p></div></li>
+      <li data-f="1"><b>2</b><div><h3>Manica raglan</h3><p>La cucitura parte dal collo: spalla libera, linea pulita.</p></div></li>
+      <li data-f="2"><b>3</b><div><h3>Treccia lungo tutta la manica</h3><p>Dalla spalla al polso, tessuta nel telo — non applicata.</p></div></li>
+      <li data-f="3"><b>4</b><div><h3>Davanti a coste</h3><p>Coste verticali che slanciano; dietro, maglia rasata.</p></div></li>
+      <li data-f="4"><b>5</b><div><h3>Taglio corto, volume ampio</h3><p>Cropped in vita, largo sulle braccia: la forma è tutta lì.</p></div></li>
+    </ol>
+
+    <div class="details">
+      <figure><img src="assets/dettaglio-treccia.webp" alt="Dettaglio della treccia sulla manica" loading="lazy" width="1000" height="1000"><figcaption class="mono">La treccia</figcaption></figure>
+      <figure><img src="assets/dettaglio-coste.webp" alt="Dettaglio delle coste sul davanti" loading="lazy" width="1000" height="1000"><figcaption class="mono">Le coste</figcaption></figure>
+      <figure><img src="assets/etichetta.webp" alt="Etichetta ID KNIT tessuta in maglia" loading="lazy" width="1000" height="1000"><figcaption class="mono">L’etichetta in maglia</figcaption></figure>
+    </div>
+
+    <a class="btn btn--ink btn--xl js-depop" href="#" target="_blank" rel="noopener">Compralo su Depop <span aria-hidden="true">↗</span></a>
+  </div>
+</section>
+
+<!-- MAKING -->
+<section class="making" id="laboratorio">
+  <div class="wrap">
+    <p class="mono kicker"><i></i>Dietro il capo</p>
+    <h2 class="serif">Tre gesti,<br><em>tutti nostri.</em></h2>
+  </div>
+  <div class="reel" id="reel">
+    <article class="clip">
+      <video muted loop playsinline preload="none" poster="assets/disegno.webp"><source src="assets/disegno.mp4" type="video/mp4"></video>
+      <div><b class="serif">01</b><h3>Lo programmiamo</h3><p>Ogni maglia disegnata a schermo, punto per punto.</p></div>
+    </article>
+    <article class="clip">
+      <video muted loop playsinline preload="none" poster="assets/tessitura.webp"><source src="assets/tessitura.mp4" type="video/mp4"></video>
+      <div><b class="serif">02</b><h3>Lo tessiamo</h3><p>Sui nostri telai, un telo alla volta.</p></div>
+    </article>
+    <article class="clip">
+      <video muted loop playsinline preload="none" poster="assets/controllo.webp"><source src="assets/controllo.mp4" type="video/mp4"></video>
+      <div><b class="serif">03</b><h3>Lo controlliamo a mano</h3><p>Controluce, sotto la lente. Se non è perfetto non parte.</p></div>
+    </article>
+  </div>
+  <div class="wrap team">
+    <figure><img src="assets/team.webp" alt="Il team nel laboratorio, tra i telai" loading="lazy" width="1200" height="1800"></figure>
+    <div>
+      <h3 class="serif">Siamo noi.</h3>
+      <p>Un laboratorio di maglieria a Montagnana, provincia di Padova. Dal 1985 tessiamo per le case di moda; ID KNIT è quello che facciamo quando il nome sul capo è il nostro.</p>
+      <p class="mono">100% Made in Italy</p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="serif foot__big">Identify yourself<br><em>in our knitwear.</em></p>
+    <a class="btn btn--paper btn--xl js-depop" href="#" target="_blank" rel="noopener">Vai al negozio Depop <span aria-hidden="true">↗</span></a>
+    <p class="mono foot__legal">ID KNIT è un marchio RDE “Studio” · RDE Knitting Developers · Montagnana (PD) · P.IVA 05623670287</p>
+  </div>
+</footer>
+</main>
+
+<a class="sticky js-depop" id="sticky" href="#" target="_blank" rel="noopener"><span>Compralo su Depop</span><b aria-hidden="true">↗</b></a>
+
+<script src="config.js"></script>
+<script src="knit.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

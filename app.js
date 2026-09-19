@@ -11,8 +11,10 @@
   /* product viewer: front / back + numbered hotspots */
   var img = $('#viewerImg'), spots = $('#spots'), feats = $$('#features li');
   var VIEWS = {
-    davanti: { src: 'assets/maglione-davanti.webp', alt: 'Maglione ID KNIT grigio, cropped, collo alto, visto di fronte' },
-    dietro: { src: 'assets/maglione-dietro.webp', alt: 'Maglione ID KNIT grigio visto da dietro, maglia rasata' }
+    davanti: { src: 'assets/indossato-davanti.webp', alt: 'Maglione ID KNIT grigio indossato, visto di fronte' },
+    dietro: { src: 'assets/indossato-dietro.webp', alt: 'Maglione ID KNIT indossato visto da dietro: maglia rasata e raglan' },
+    manica: { src: 'assets/indossato-profilo-manica.webp', alt: 'Maglione ID KNIT di profilo: la treccia lungo tutta la manica' },
+    steso: { src: 'assets/maglione-davanti.webp', alt: 'Il maglione ID KNIT steso, foto reale' }
   };
   $$('.viewer__tabs button').forEach(function (b) {
     b.addEventListener('click', function () {
@@ -23,6 +25,7 @@
       pre.onload = pre.onerror = function () { img.src = v.src; img.alt = v.alt; img.style.opacity = 1; };
       pre.src = v.src;
       spots.hidden = b.getAttribute('data-view') !== 'davanti';
+      img.parentNode.classList.toggle('is-flat', b.getAttribute('data-view') === 'steso');
     });
   });
   function select(i, scroll) {

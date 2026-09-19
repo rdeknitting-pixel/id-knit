@@ -26,9 +26,16 @@
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <canvas class="hero__knit" id="heroKnit" aria-label="ID KNIT scritto in maglia" role="img"></canvas>
+  <div class="hero__stage">
+    <canvas class="hero__knit" id="heroKnit" aria-label="ID KNIT scritto in maglia" role="img"></canvas>
+    <div class="hero__brandof">
+      <span class="mono">un brand di</span>
+      <img src="assets/logo-rde.svg" alt="RDE Knitting Developers" width="150" height="80">
+      <em class="serif">“Studio”</em>
+    </div>
+  </div>
   <div class="hero__copy">
-    <p class="mono">Identify yourself in our knitwear</p>
+    <p class="mono">Identify yourself in our knitwear · by RDE “Studio”</p>
     <h1 class="serif">Non lo rivendiamo.<br><em>Lo facciamo noi.</em></h1>
     <p class="hero__lead">Maglieria tessuta punto per punto nel nostro laboratorio in Italia. Pochi pezzi, un’identità precisa.</p>
     <div class="hero__cta">
@@ -120,32 +127,76 @@
 
 <!-- MAKING -->
 <section class="making" id="laboratorio">
-  <div class="wrap">
-    <p class="mono kicker"><i></i>Dietro il capo</p>
-    <h2 class="serif">Tre gesti,<br><em>tutti nostri.</em></h2>
-  </div>
-  <div class="reel" id="reel">
-    <article class="clip">
-      <video muted loop playsinline preload="none" poster="assets/disegno.webp"><source src="assets/disegno.mp4" type="video/mp4"></video>
-      <div><b class="serif">01</b><h3>Lo programmiamo</h3><p>Ogni maglia disegnata a schermo, punto per punto.</p></div>
-    </article>
-    <article class="clip">
-      <video muted loop playsinline preload="none" poster="assets/tessitura.webp"><source src="assets/tessitura.mp4" type="video/mp4"></video>
-      <div><b class="serif">02</b><h3>Lo tessiamo</h3><p>Sui nostri telai, un telo alla volta.</p></div>
-    </article>
-    <article class="clip">
-      <video muted loop playsinline preload="none" poster="assets/controllo.webp"><source src="assets/controllo.mp4" type="video/mp4"></video>
-      <div><b class="serif">03</b><h3>Lo controlliamo a mano</h3><p>Controluce, sotto la lente. Se non è perfetto non parte.</p></div>
-    </article>
-  </div>
-  <div class="wrap team">
-    <figure><img src="assets/team.webp" alt="Il team nel laboratorio, tra i telai" loading="lazy" width="1200" height="1800"></figure>
+  <div class="wrap making__head">
     <div>
-      <h3 class="serif">Siamo noi.</h3>
-      <p>Un laboratorio di maglieria a Montagnana, provincia di Padova. Dal 1985 tessiamo per le case di moda; ID KNIT è quello che facciamo quando il nome sul capo è il nostro.</p>
-      <p class="mono">100% Made in Italy</p>
+      <p class="mono kicker"><i></i>Dietro il capo</p>
+      <h2 class="serif">Otto passaggi,<br><em>un maglione.</em></h2>
+    </div>
+    <div class="making__nav">
+      <span class="mono" id="stepCount">01 / 08</span>
+      <button type="button" id="stepPrev" aria-label="Passaggio precedente">←</button>
+      <button type="button" id="stepNext" aria-label="Passaggio successivo">→</button>
     </div>
   </div>
+
+  <div class="reel" id="reel">
+    <article class="clip">
+      <figure><img src="assets/filato.webp" alt="Rocche di filato sopra il telaio" loading="lazy" width="1800" height="1200"></figure>
+      <div><b class="serif">01</b><h3>Scelta del filato</h3>
+        <p>80% lana, 20% cashmere pregiato. Filato italiano di Filatura Papi Fabio, sull’Appennino bolognese.</p>
+        <span class="mono tag">Gaggio Montano (BO) · Italia</span></div>
+    </article>
+    <article class="clip">
+      <figure><img src="assets/modellistica.webp" alt="Scheda tecnica compilata a mano sopra la maglia" loading="lazy" width="1600" height="1067"></figure>
+      <div><b class="serif">02</b><h3>Modellistica</h3>
+        <p>La forma nasce su carta: taglio corto, raglan, manica ampia. Ogni misura decisa prima di toccare un filo.</p>
+        <span class="mono tag">Scheda tecnica</span></div>
+    </article>
+    <article class="clip">
+      <figure><video muted loop playsinline preload="none" poster="assets/disegno.webp"><source src="assets/disegno.mp4" type="video/mp4"></video></figure>
+      <div><b class="serif">03</b><h3>Programmazione</h3>
+        <p>Coste, trecce e cali disegnati a schermo punto per punto: un quadretto, una maglia.</p>
+        <span class="mono tag">Ufficio tecnico</span></div>
+    </article>
+    <article class="clip">
+      <figure><video muted loop playsinline preload="none" poster="assets/tessitura.webp"><source src="assets/tessitura.mp4" type="video/mp4"></video></figure>
+      <div><b class="serif">04</b><h3>Smacchinatura</h3>
+        <p>Il telaio tesse davanti, dietro e maniche già sagomati. La treccia nasce insieme alla manica.</p>
+        <span class="mono tag">Telai elettronici Stoll</span></div>
+    </article>
+    <article class="clip">
+      <figure><img src="assets/confezione.webp" alt="Teli di maglia appena smacchinati, pronti per la confezione" loading="lazy" width="1600" height="1067"></figure>
+      <div><b class="serif">05</b><h3>Confezione</h3>
+        <p>I teli vengono uniti a rimaglio, maglia dentro maglia: per questo il raglan è un cordoncino e non una cucitura.</p>
+        <span class="mono tag">Rimaglio</span></div>
+    </article>
+    <article class="clip">
+      <figure><img src="assets/lavaggio.webp" alt="La superficie morbida del maglione dopo il lavaggio" loading="lazy" width="1200" height="750"></figure>
+      <div><b class="serif">06</b><h3>Lavaggio</h3>
+        <p>È qui che lana e cashmere si aprono: la fibra si gonfia e la mano diventa morbida, leggermente pelosa.</p>
+        <span class="mono tag">Finissaggio</span></div>
+    </article>
+    <article class="clip">
+      <figure><video muted loop playsinline preload="none" poster="assets/imbusto.webp"><source src="assets/imbusto.mp4" type="video/mp4"></video></figure>
+      <div><b class="serif">07</b><h3>Stiro e imbusto</h3>
+        <p>Vaporizzato, steso, misurato e controllato un’ultima volta. Poi piegato e imbustato.</p>
+        <span class="mono tag">Controllo finale</span></div>
+    </article>
+    <article class="clip clip--final">
+      <figure class="spin" id="spin" aria-label="Il maglione finito: trascina per girarlo">
+        <div class="spin__card" id="spinCard">
+          <img src="assets/indossato-davanti.webp" alt="Il maglione finito, davanti" class="is-on" draggable="false" width="1080" height="1340">
+          <img src="assets/indossato-profilo-manica.webp" alt="Il maglione finito, di profilo" loading="lazy" draggable="false" width="1080" height="1350">
+          <img src="assets/indossato-dietro.webp" alt="Il maglione finito, dietro" loading="lazy" draggable="false" width="1080" height="1340">
+        </div>
+        <span class="spin__hint mono">↔ trascina per girarlo</span>
+      </figure>
+      <div><b class="serif">08</b><h3>Pronto per te</h3>
+        <p>Dal filo alla busta, tutto sotto i nostri occhi. Adesso è su Depop.</p>
+        <a class="btn btn--paper js-depop" href="#" target="_blank" rel="noopener">Compralo su Depop ↗</a></div>
+    </article>
+  </div>
+  <div class="wrap"><div class="making__bar" aria-hidden="true"><i id="stepBar"></i></div></div>
 </section>
 
 <footer class="foot">
